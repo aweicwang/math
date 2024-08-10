@@ -3,6 +3,8 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage[utf8]{inputenc}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1em}
 
 
 \title{Final Review}
@@ -18,5 +20,15 @@
                      for any $\varepsilon > 0$,
                      $$\lim_{n \to \infty}\mathbb{P}(|X_n-X| \geq \varepsilon) = 0 $$
                      denoted by $X_n \xrightarrow{p} X $.
+
+\par
+
+\textbf{Definition.} $X_n$ \emph{converges almost surely} to $X$ if 
+                     $$\mathbb{P}(\lim_{n \to \infty}X_n = X) = 1.$$
+                     denoted by $X_n \xrightarrow{a.s.} X.$
+
+\textbf{Theorem.} Suppose $\{X_n\}$ are i.i.d random variables with $X_n \xrightarrow{d} X, \mathbb{E}[X] < \infty$, then
+$$\lim_{n \to \infty}\frac{X_1 + X_2 + \dots +X_n}{n} \xrightarrow{p \ \& \ a.s.} \mathbb{E}[X].$$
+
 
 \end{document}
