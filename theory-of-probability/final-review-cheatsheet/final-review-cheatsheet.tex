@@ -58,6 +58,58 @@ for all $a,b$.
 
 \textbf{Definition.} $X$ is a \emph{binomial random variable} $X$ with parameter $p \in (0,1)$ and $n \in \mathbb{N}$
 is given by $$\mathbb{P}(X = k) = \binom{n}{k}p^k(1-p)^{n-k}$$ for some $k \in \{1,2,\dots, n\}.$
+\textbf{Proposition.} Suppose $X_1, X_2, \dots, X_N$ are independent Bernoulli random
+variables with parameter $p$. Then $X_1 + X_2 + \dots X_n$ is a binomial random variable with
+parameters $p,n$.
+
+\textbf{Definition.} $X$ is a \emph{Poisson random variable} with parameter $\lambda > 0$
+if $$\mathbb{P}(X = k) = e^{-\lambda} \cdot \frac{\lambda^k}{k!}$$ for some integer $k$.
+
+\textbf{Proposition.} Suppose $X = Poiss(\lambda_1), Y = Poiss(\lambda_2)$, then $X+Y = Poiss(\lambda_1 + \lambda_2) = Poiss(\lambda_1 + \lambda_2).$
+
+
+\section{Continuous Random Variables}
+\textbf{Definition. } For $\mu \in \mathbb{R}, \sigma > 0$, X is a \emph{normal random variable with mean $\mu$ and variance $\sigma^2$} denoted by
+$\mathcal(\mu, \sigma^2)$ if its probability density function is
+\[
+  f(x) = \frac{1}{\sigma\sqrt{2\pi}} \cdot e^{-\frac{(x-\mu)^2}{2\sigma^2}}
+\]
+for some $x \in \mathbb{R}$.
+
+\section{Joint Distributions}
+
+\textbf{Definition.} For real valued random variables $X, Y$, the \emph{joint cumulative distribution function}
+is $F: \mathbb{R} \times \mathbb{R} \to [0,1]$ given by
+
+\[
+F(a,b) = \mathbb{P}(X \leq a, Y \leq b).
+\]
+with $F$ being non-decreasing in each of its dimensions.
+
+\textbf{Definition.} X,Y are \emph{jointly continuous random variables} if there exists 
+\\ $f: \mathbb{R} \times \mathbb{R} \to [0, \infty]$
+with $\int_{\mathbb{R}\times \mathbb{R}}f(x,y)dxdy = 1$
+\[
+  \mathbb{P}(X\in I_1, Y \in I_2)  = \int_{I_1 \times I_2} f(x,y)dxdy
+\]
+for any intervals $I_1, I_2$.
+
+\textbf{Proposition.} Suppose $X,Y$ are independent random variables, then \\
+(a) $F(a,b) = F_X(a)F_Y(b),$ \\
+(b) If $X, Y$ are continuous with probability density function $f_X, f_Y$, respectively,
+then they are jointly continuous with joint probability distribution function $f(a,b) = f_X(a)f_Y(b).$
+\textbf{Proposition.} Suppose $X,Y$ are independent continuous random variables with probability density functions $f_X, f_Y.$
+Then $Z = X + Y$ is a continuous random variable with probability density function
+\[
+  g(a) = \int_{\mathbb{R}}f_X(x)f_Y(a-x)dx
+\]
+
+\textbf{Proposition.} Suppose $X = \mathcal{N}(\mu_1, \sigma_1^2), Y = \mathcal{N}(\mu_2, \sigma_2^2)$ are independent, Then for $a,b \in \mathbb{R},$
+$a^2 + b^2 > 0,$
+
+\[
+  aX+bY = \mathcal{N}(\mu_1+\mu_2, \sigma_1^2 + \sigma_2^2).
+\]
 \section{Moment Generation Functions}
 
 \textbf{Definition.} For a real-valued random variable $X$, its \emph{moment-generating function}
