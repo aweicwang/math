@@ -13,7 +13,32 @@
 \begin{document}
 
 \maketitle
- 
+
+\section{Moment Generation Functions}
+
+\textbf{Definition.} For a real-valued random variable $X$, its \emph{moment-generating function}
+is $M_X: \mathbb{R} [0, \infty]$, $$M_X(t) = \mathbb{E}[e^{tX}], t \in \mathbb{R}$$
+
+\par
+
+\textbf{Proposition.} \\ 
+(a) $M_X(0) = 1$. \\
+(b) $M_{X+Y} = M_XM_Y$ for $X,Y$ independent, \\
+(c) $M_X$ is fully determined by the moments of $X$ so long as 
+  $\mathbb{E}{X^n}\leq(cn)^n$ for some $c >0$.
+
+
+\par
+\textbf{Definition.} For random variables $X_1, \dots, X_n$, they have moment generating function
+$M_{X_{1, \dots, n}}(t_1, \dots, t_n) = \mathbb{E}[e^{t_1X_1 + \dots + t_nX_n}].$
+
+\par
+
+\textbf{Definition.} $X_1, X_2, \dots, X_n$ are \emph{multivariate normal random variable} if for any $X_i \in {X_1, \dots, X_n}$
+                     there exist independent normal random variables $Y_1, Y_2, \dots, Y_m$ and $a_{ij} \in \mathbb{R}$ such that
+                     $$\sum_{0\leq j \leq m}a_{ij}Y_j = X_i$$
+
+
 \section{Law of Large Numbers}
 
 \textbf{Definition.} $X_n$ \emph{converges in probability} to $X$ if
@@ -27,8 +52,17 @@
                      $$\mathbb{P}(\lim_{n \to \infty}X_n = X) = 1.$$
                      denoted by $X_n \xrightarrow{a.s.} X.$
 
-\textbf{Theorem.} Suppose $\{X_n\}$ are i.i.d random variables with $X_n \xrightarrow{d} X, \mathbb{E}[X] < \infty$, then
+\textbf{Theorem. (Weak and Strong Law of Large Numbers)} Suppose $\{X_n\}$ are i.i.d random variables with $X_n \xrightarrow{d} X, \mathbb{E}[X] < \infty$, then
 $$\lim_{n \to \infty}\frac{X_1 + X_2 + \dots +X_n}{n} \xrightarrow{p \ \& \ a.s.} \mathbb{E}[X].$$
+
+\section{Central Limit Theorem}
+
+\textbf{Definition.} $X_n\in \mathbb{R}$ \emph{converges in distribution} to $X \in \mathbb{R}$ if
+                     $$\lim_{n \to \infty}\mathbb{P}(X_n \leq a) = \mathbb{P}(X \leq a)$$
+                     for all $a \in \mathbb{R}$ at which the CDF of $X$ is continuous. This is denoted as $$X_n \xrightarrow{d} X.$$
+
+                     \textbf{Theorem. (Central Limit Theorem)} Suppose $X_n \in \mathbb{R}$ are i.i.d. with $\mathbb{E}[X^2] < \infty$, $Var(X) > 0$. Then
+                     $$\frac{X_1+\dots+X_n - n\mathbb{E}[X]}{\sqrt{n\cdot Var(X)}} \Rightarrow \mathcal{N}(0,1).$$
 
 
 \end{document}
