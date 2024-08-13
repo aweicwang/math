@@ -1,7 +1,8 @@
-\documentclass{article}
+\documentclass{article}[11pt]
 
 \usepackage{amssymb}
 \usepackage{amsmath}
+\usepackage[margin=1in]{geometry}
 \usepackage[utf8]{inputenc}
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{1em}
@@ -14,10 +15,53 @@
 
 \maketitle
 
+\section{Counting}
+
+\textbf{Theorem. (Binomial Theorem)} Let $x,y \in \mathbb{R}$ and $n \in \mathbb{N}$. Then
+\[
+  (x+y)^n = \sum_{0 \leq i \leq n}\binom{n}{i}x^iy^{n-i}.
+\]
+  
+\textbf{Theorem. (Multinomial Theorem)} Let $a_1, \dots, a_n \in \mathbb{R}$ and $n \in \mathbb{N}$. Then
+\[
+  (a_1 + \dots + a_k)^n = \sum_{m_1 + \dots + m_k = n}\binom{n}{m_1, \dots m_k}a_1^{m_1}\dots a_n^{m_k}.
+\]
+
+\section{Probabilities}
+
+\textbf{Definition.} The \emph{conditional probability} of $E$ given $F$ is
+
+$$\mathbb{P}(E|F) = \frac{\mathbb{P}(E\cap F)}{\mathbb{P}(F)}$$
+
+\textbf{Definition.} Two events $E$ and $F$ are said to be \emph{independent} if
+$$\mathbb{P}(E\cap F) = \mathbb{P}(E)\mathbb{P}(F).$$
+
+\textbf{Theorem. (Bayes' Formula)} $$\mathbb{P}(E|F)=\frac{\mathbb{P}(F|E)\mathbb{P}(E)}{\mathbb{P}(F)}.$$
+
+
+\section{Random Variables}
+
+\textbf{Definition.} The \emph{variance} of a real valued random variable $X$ is given by
+$$Var(X) = \mathbb{E}[X^2] - \mathbb{E}[X]^2 = \mathbb{E}[(X-\mathbb{E}[X])^2].$$
+
+
+\textbf{Definition.} Two random variables $X, Y$ are said to be independent if 
+$$\mathbb{P}(X=a,Y=b) = \mathbb{P}(X=a)\mathbb{P}(Y =b)$$
+for all $a,b$.
+
+\textbf{Proposition.} Let $X, Y$ be two independent random variables. then: \\
+(a) $g(X), f(Y)$ are independent for all functions $g,f$ on $X, Y$.\\
+(b) $\mathbb{E}[g(X)h(Y)] = \mathbb{E}[g(X)] \mathbb{E}[f(Y).]$\\
+(c) $Var(g(X) + f(Y)) = Var(g(X)) + Var(f(Y))$
+
+\section{Poisson Random Variables}
+
+\textbf{Definition.} $X$ is a \emph{binomial random variable} $X$ with parameter $p \in (0,1)$ and $n \in \mathbb{N}$
+is given by $$\mathbb{P}(X = k) = \binom{n}{k}p^k(1-p)^{n-k}$$ for some $k \in \{1,2,\dots, n\}.$
 \section{Moment Generation Functions}
 
 \textbf{Definition.} For a real-valued random variable $X$, its \emph{moment-generating function}
-is $M_X: \mathbb{R} [0, \infty]$, $$M_X(t) = \mathbb{E}[e^{tX}], t \in \mathbb{R}$$
+is $M_X: \mathbb{R}\to [0, \infty]$, $$M_X(t) = \mathbb{E}[e^{tX}], t \in \mathbb{R}$$
 
 \par
 
@@ -25,7 +69,7 @@ is $M_X: \mathbb{R} [0, \infty]$, $$M_X(t) = \mathbb{E}[e^{tX}], t \in \mathbb{R
 (a) $M_X(0) = 1$. \\
 (b) $M_{X+Y} = M_XM_Y$ for $X,Y$ independent, \\
 (c) $M_X$ is fully determined by the moments of $X$ so long as 
-  $\mathbb{E}{X^n}\leq(cn)^n$ for some $c >0$.
+$\mathbb{E}[X^n]\leq(cn)^n$ for some $c >0$.
 
 
 \par
@@ -36,9 +80,39 @@ $M_{X_{1, \dots, n}}(t_1, \dots, t_n) = \mathbb{E}[e^{t_1X_1 + \dots + t_nX_n}].
 
 \textbf{Definition.} $X_1, X_2, \dots, X_n$ are \emph{multivariate normal random variable} if for any $X_i \in {X_1, \dots, X_n}$
                      there exist independent normal random variables $Y_1, Y_2, \dots, Y_m$ and $a_{ij} \in \mathbb{R}$ such that
-                     $$\sum_{0\leq j \leq m}a_{ij}Y_j = X_i$$
+                     $$\sum_{0\leq j \leq m}a_{ij}Y_j = X_i.$$
 
+ 
+\section{Conditional Expectations and Inequaliies.}
 
+\textbf{Definition.} For a set $S$ and $A \subset S$, the \emph{indicator/characteristic function} of $A$ is 
+\[
+\mathcal{X}_A(x) = \begin{cases}
+1, x \in A, \\
+0, x \notin. A
+\end{cases}
+\]
+
+\textbf{Proposition. (Chevyshev's Inequality)} For $a > 0$ and a real-valued random variable $X$,
+$$\mathbb{P}(| X - \mathbb{E}[X]| \geq a) \leq \frac{Var(X)}{a^2}.$$
+
+\textbf{Proposition. (Markov's Inequality)} For $a > 0$, and a real-valued random variable $X \geq 0$,
+$$\mathbb{P}(X \geq a) \leq \frac{\mathbb{E}[X]}{a}.$$
+
+\textbf{Definition.} The \emph{conditional expectation} of $X$ given $Y$ is a ramdom variable $T$ with
+\[
+  \mathbb{P}(T = s) = \sum_{y \in Y: E[X|Y = y] = s} \mathbb{P}(Y=y)  
+\]
+and denoted by $\mathbb{E}[X|Y].$ Similarly, when $X,Y$ are jointly continuous,
+$$\mathbb{E}[X|Y=y] = \frac{1}{f_Y(y)}\int_{\mathbb{R}}xf(x,y)dx$$
+\[
+  \mathbb{P}(T\in I) = \int_{S(I)}f(y)dy
+\]
+where $S(I) = {y\in \mathbb{R}: \mathbb{E}}[X|Y = y] \in I$
+
+\textbf{Proposition.} \\
+(a) $\mathbb{E}[X] = \mathbb{E}[\mathbb{E}[X|Y]]$, \\
+(b) $\mathbb{E}[Xg(Y)|Y] = g(Y)\mathbb{E}[X|Y]$.
 \section{Law of Large Numbers}
 
 \textbf{Definition.} $X_n$ \emph{converges in probability} to $X$ if
@@ -54,6 +128,8 @@ $M_{X_{1, \dots, n}}(t_1, \dots, t_n) = \mathbb{E}[e^{t_1X_1 + \dots + t_nX_n}].
 
 \textbf{Theorem. (Weak and Strong Law of Large Numbers)} Suppose $\{X_n\}$ are i.i.d random variables with $X_n \xrightarrow{d} X, \mathbb{E}[X] < \infty$, then
 $$\lim_{n \to \infty}\frac{X_1 + X_2 + \dots +X_n}{n} \xrightarrow{p \ \& \ a.s.} \mathbb{E}[X].$$
+
+
 
 \section{Central Limit Theorem}
 
